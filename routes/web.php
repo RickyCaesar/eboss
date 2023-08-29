@@ -50,7 +50,9 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('/kode-rekening', KodeRekening::class);
         Route::resource('/data-pokok-pendidikan', DataPokokPendidikan::class);
         Route::post('/data-pokok-pendidikan/import', [DataPokokPendidikan::class, 'importExcel'])->name('data-pokok-pendidikan.import');
+        Route::get('/data-pokok-pendidi/export', [DataPokokPendidikan::class, 'exportExcel'])->name('data-pokok-pendidikan.export');
         Route::resource('/log/konfirmasi-data', KonfirmasiDataSatuanPendidikan::class);
+        Route::get('/reset', [DataPokokPendidikan::class, 'reset'])->name('data-pokok-pendidikan.reset');
     });
 });
 

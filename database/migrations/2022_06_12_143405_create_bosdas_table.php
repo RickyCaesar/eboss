@@ -15,8 +15,10 @@ class CreateBosdasTable extends Migration
     {
         Schema::create('bosda', function (Blueprint $table) {
             $table->id();
-            $table->string('bentuk_pendidikan');
-            $table->integer('satuan_biaya');
+            $table->string('kab_kota');
+            $table->integer('sma');
+            $table->integer('smk');
+            $table->integer('slb');
             $table->timestamps();
         });
     }

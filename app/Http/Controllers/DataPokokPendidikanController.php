@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use RDev, Excel;
 
 use App\Imports\DataPokokPendidikanImport;
+use App\Exports\DataPokokPendidikanExport;
 use App\Models\DataPokokPendidikan;
+use App\Models\Bosnas;
+use App\Models\Bosda;
 
 class DataPokokPendidikanController extends Controller
 {
@@ -60,7 +63,9 @@ class DataPokokPendidikanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $sekolah = DataPokokPendidikan::find($id); 
+        // dd($data);
+        return view('Pages.DataPokokSekolah.EditPD', ['sekolah'=>$sekolah]);
     }
 
     /**
@@ -72,7 +77,29 @@ class DataPokokPendidikanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $sekolah = DataPokokPendidikan::find($id);
+
+        if ($sekolah->bentuk_pendidikan == "SLB" && $request->peserta_didik < 60) {
+            $pagu_bosnas = Bosnas::firstWhere('kab_kota', $sekolah->kab_kota_sp)->slb * 60;
+            $pagu_bosda = Bosda::firstWhere('kab_kota', $sekolah->kab_kota_sp)->slb * $request->peserta_didik;
+        } elseif ($sekolah->bentuk_pendidikan == "SMA") {
+            $pagu_bosnas = Bosnas::firstWhere('kab_kota', $sekolah->kab_kota_sp)->sma * $request->peserta_didik;
+            $pagu_bosda = Bosda::firstWhere('kab_kota', $sekolah->kab_kota_sp)->sma * $request->peserta_didik;
+        } elseif ($sekolah->bentuk_pendidikan == "SMK") {
+            $pagu_bosnas = Bosnas::firstWhere('kab_kota', $sekolah->kab_kota_sp)->smk * $request->peserta_didik;
+            $pagu_bosda = Bosda::firstWhere('kab_kota', $sekolah->kab_kota_sp)->smk * $request->peserta_didik;
+        } else {
+            $pagu_bosnas = Bosnas::firstWhere('kab_kota', $sekolah->kab_kota_sp)->slb * $request->peserta_didik;
+            $pagu_bosda = Bosda::firstWhere('kab_kota', $sekolah->kab_kota_sp)->slb * $request->peserta_didik;
+        }
+
+        $sekolah->update([
+            'peserta_didik' => $request->peserta_didik,
+            'pagu_bosnas' => $pagu_bosnas,
+            'pagu_bosda' => $pagu_bosda,
+        ]);
+
+        return redirect()->route('data-pokok-pendidikan.index');
     }
 
     /**
@@ -89,6 +116,17 @@ class DataPokokPendidikanController extends Controller
     public function importExcel(Request $request)
     {
         Excel::import(new DataPokokPendidikanImport, $request->file);
+        return redirect()->route('data-pokok-pendidikan.index');
+    }
+
+    public function exportExcel()
+    {
+        return Excel::download(new DataPokokPendidikanExport, 'DanaBOSSekolah.xlsx');
+    }
+
+    public function reset()
+    {
+        DataPokokPendidikan::truncate();
         return redirect()->route('data-pokok-pendidikan.index');
     }
 }

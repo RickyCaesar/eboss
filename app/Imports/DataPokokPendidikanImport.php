@@ -21,26 +21,31 @@ class DataPokokPendidikanImport implements ToModel, WithHeadingRow
     */
     public function model(array $row)
     {
-        // dd($row);
+        // dd($row['kab_kota']);
         // dd(Bosnas::firstWhere('kab_kota', $row['kab_kota'])->slb);
+
         if ($row['bentuk_pendidikan'] == "SLB" && $row['peserta_didik'] < 60) {
             $pagu_bosnas = Bosnas::firstWhere('kab_kota', $row['kab_kota'])->slb * 60;
+            $pagu_bosda = Bosda::firstWhere('kab_kota', $row['kab_kota'])->slb * $row['peserta_didik'];
         } elseif ($row['bentuk_pendidikan'] == "SMA") {
             $pagu_bosnas = Bosnas::firstWhere('kab_kota', $row['kab_kota'])->sma * $row['peserta_didik'];
+            $pagu_bosda = Bosda::firstWhere('kab_kota', $row['kab_kota'])->sma * $row['peserta_didik'];
         } elseif ($row['bentuk_pendidikan'] == "SMK") {
             $pagu_bosnas = Bosnas::firstWhere('kab_kota', $row['kab_kota'])->smk * $row['peserta_didik'];
+            $pagu_bosda = Bosda::firstWhere('kab_kota', $row['kab_kota'])->smk * $row['peserta_didik'];
         } else {
             $pagu_bosnas = Bosnas::firstWhere('kab_kota', $row['kab_kota'])->slb * $row['peserta_didik'];
+            $pagu_bosda = Bosda::firstWhere('kab_kota', $row['kab_kota'])->slb * $row['peserta_didik'];
         }
+        
+        // $pagu_bosda = Bosda::firstWhere('bentuk_pendidikan', $row['bentuk_pendidikan'])->satuan_biaya * $row['peserta_didik'];
 
-        $pagu_bosda = Bosda::firstWhere('bentuk_pendidikan', $row['bentuk_pendidikan'])->satuan_biaya * $row['peserta_didik'];
-
-        User::insert([
-            'name' => $row['satuan_pendidikan'],
-            'email' => $row['npsn'],
-            'role' => '1',
-            'password' => Hash::make($row['npsn']),
-        ]);
+        // User::insert([
+        //     'name' => $row['satuan_pendidikan'],
+        //     'email' => $row['npsn'],
+        //     'role' => '1',
+        //     'password' => Hash::make($row['npsn']),
+        // ]);
 
         return new DataPokokPendidikan([
             'satuan_pendidikan' => $row['satuan_pendidikan'],

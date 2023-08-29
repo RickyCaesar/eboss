@@ -30,6 +30,7 @@
                             <div class="col-5 text-right">
                                 <button class="btn-shadow btn btn-success text-white font-weight-bold"
                                     data-toggle="modal" data-target="#exampleModal">Import</button>
+                                <a href="{{route('data-pokok-pendidikan.export')}}" class="btn-shadow btn btn-danger text-white font-weight-bold">Export</a>
                             </div>
                         </div>
                         <div class="table-responsive">
@@ -43,6 +44,7 @@
                                         <th class="align-middle text-center">Peserta Didik</th>
                                         <th class="align-middle text-center">Pagu BOSNAS</th>
                                         <th class="align-middle text-center">Pagu BOSDA</th>
+                                        <th class="align-middle text-center">#</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -55,6 +57,7 @@
                                         <td>{{$data->peserta_didik}}</td>
                                         <td>{{number_format($data->pagu_bosnas)}}</td>
                                         <td>{{number_format($data->pagu_bosda)}}</td>
+                                        <td><a class="btn-shadow btn btn-primary text-white font-weight-bold" href="{{route('data-pokok-pendidikan.edit', $data->id)}}">Edit</a></td>
                                     </tr>
                                     @endforeach
                                 </tbody>
@@ -107,7 +110,11 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $('#example').DataTable({
-            dom: 'Qlfrtip'
+            dom: 'Qlfrtip',
+            aLengthMenu: [
+                [25, 50, 100, 200, -1],
+                [25, 50, 100, 200, "Semua"]
+            ],
         });
     });
 </script>

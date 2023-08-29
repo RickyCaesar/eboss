@@ -50,7 +50,7 @@ class RDevCommand {
         if ($jenis == 'bosnas') {
             return Bosnas::all();
         } else {
-            return Bosda::get();
+            return Bosda::all();
         }
     }
 
@@ -123,12 +123,65 @@ class RDevCommand {
                 'slb' => $request->bosnas10[2],
             ]);
         } else {
-            $i = 1;
-            foreach ($request->bosda as $key) {
-                Bosda::find($i++)->update([
-                    'satuan_biaya' => $key
-                ]);
-            }
+            Bosda::find(1)->update([
+                'sma' => $request->bosda1[0],
+                'smk' => $request->bosda1[1],
+                'slb' => $request->bosda1[2],
+            ]);
+    
+            Bosda::find(2)->update([
+                'sma' => $request->bosda2[0],
+                'smk' => $request->bosda2[1],
+                'slb' => $request->bosda2[2],
+            ]);
+    
+            Bosda::find(3)->update([
+                'sma' => $request->bosda3[0],
+                'smk' => $request->bosda3[1],
+                'slb' => $request->bosda3[2],
+            ]);
+    
+            Bosda::find(4)->update([
+                'sma' => $request->bosda4[0],
+                'smk' => $request->bosda4[1],
+                'slb' => $request->bosda4[2],
+            ]);
+    
+            Bosda::find(5)->update([
+                'sma' => $request->bosda5[0],
+                'smk' => $request->bosda5[1],
+                'slb' => $request->bosda5[2],
+            ]);
+    
+            Bosda::find(6)->update([
+                'sma' => $request->bosda6[0],
+                'smk' => $request->bosda6[1],
+                'slb' => $request->bosda6[2],
+            ]);
+    
+            Bosda::find(7)->update([
+                'sma' => $request->bosda7[0],
+                'smk' => $request->bosda7[1],
+                'slb' => $request->bosda7[2],
+            ]);
+    
+            Bosda::find(8)->update([
+                'sma' => $request->bosda8[0],
+                'smk' => $request->bosda8[1],
+                'slb' => $request->bosda8[2],
+            ]);
+    
+            Bosda::find(9)->update([
+                'sma' => $request->bosda9[0],
+                'smk' => $request->bosda9[1],
+                'slb' => $request->bosda9[2],
+            ]);
+    
+            Bosda::find(10)->update([
+                'sma' => $request->bosda10[0],
+                'smk' => $request->bosda10[1],
+                'slb' => $request->bosda10[2],
+            ]);
         }
     }
 
