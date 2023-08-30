@@ -40,12 +40,14 @@ class DataPokokPendidikanImport implements ToModel, WithHeadingRow
         
         // $pagu_bosda = Bosda::firstWhere('bentuk_pendidikan', $row['bentuk_pendidikan'])->satuan_biaya * $row['peserta_didik'];
 
-        // User::insert([
-        //     'name' => $row['satuan_pendidikan'],
-        //     'email' => $row['npsn'],
-        //     'role' => '1',
-        //     'password' => Hash::make($row['npsn']),
-        // ]);
+        if (empty(User::where('email', $row['npsn'])->first())) {
+            User::insert([
+                'name' => $row['satuan_pendidikan'],
+                'email' => $row['npsn'],
+                'role' => '1',
+                'password' => Hash::make($row['npsn']),
+            ]);
+        }
 
         if (empty(DataPokokPendidikan::where('npsn', $row['npsn'])->first())) {
             return new DataPokokPendidikan([
