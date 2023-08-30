@@ -47,14 +47,23 @@ class DataPokokPendidikanImport implements ToModel, WithHeadingRow
         //     'password' => Hash::make($row['npsn']),
         // ]);
 
-        return new DataPokokPendidikan([
-            'satuan_pendidikan' => $row['satuan_pendidikan'],
-            'npsn' => $row['npsn'],
-            'bentuk_pendidikan' => $row['bentuk_pendidikan'],
-            'kab_kota_sp' => $row['kab_kota'],
-            'peserta_didik' => $row['peserta_didik'],
-            'pagu_bosnas' => $pagu_bosnas,
-            'pagu_bosda' => $pagu_bosda,
-        ]);
+        if (empty(DataPokokPendidikan::where('npsn', $row['npsn'])->first())) {
+            return new DataPokokPendidikan([
+                'satuan_pendidikan' => $row['satuan_pendidikan'],
+                'npsn' => $row['npsn'],
+                'bentuk_pendidikan' => $row['bentuk_pendidikan'],
+                'kab_kota_sp' => $row['kab_kota'],
+                'peserta_didik' => $row['peserta_didik'],
+                'pagu_bosnas' => strval($pagu_bosnas),
+                'pagu_bosda' => strval($pagu_bosda),
+            ]);
+        } else {
+            DataPokokPendidikan::where('npsn', $row['npsn'])->first()->update([
+                'peserta_didik' => $row['peserta_didik'],
+                'pagu_bosnas' => strval($pagu_bosnas),
+                'pagu_bosda' => strval($pagu_bosda),
+            ]);
+        }
+        
     }
 }

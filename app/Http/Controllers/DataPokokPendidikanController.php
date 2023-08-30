@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use RDev, Excel;
+use RDev, Excel, DB;
 
 use App\Imports\DataPokokPendidikanImport;
 use App\Exports\DataPokokPendidikanExport;
@@ -77,6 +77,7 @@ class DataPokokPendidikanController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // DB::enableQueryLog();
         $sekolah = DataPokokPendidikan::find($id);
 
         if ($sekolah->bentuk_pendidikan == "SLB" && $request->peserta_didik < 60) {
@@ -95,9 +96,11 @@ class DataPokokPendidikanController extends Controller
 
         $sekolah->update([
             'peserta_didik' => $request->peserta_didik,
-            'pagu_bosnas' => $pagu_bosnas,
-            'pagu_bosda' => $pagu_bosda,
+            'pagu_bosnas' => strval($pagu_bosnas),
+            'pagu_bosda' => strval($pagu_bosda),
         ]);
+        // dd(DB::getQueryLog());
+        // dd($sekolah->toSql());
 
         return redirect()->route('data-pokok-pendidikan.index');
     }
