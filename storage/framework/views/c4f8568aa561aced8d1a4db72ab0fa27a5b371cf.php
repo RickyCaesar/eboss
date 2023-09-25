@@ -52,7 +52,7 @@
                 <div class="card mb-3 widget-content bg-grow-early">
                     <div class="widget-content-wrapper text-white">
                         <div class="widget-content-left">
-                            <div class="widget-heading">Pagu BOSNAS</div>
+                            <div class="widget-heading">Pagu BOSNAS Total</div>
                         </div>
                         <div class="widget-content-right">
                             <div class="widget-numbers text-white">
@@ -67,12 +67,72 @@
                 <div class="card mb-3 widget-content bg-night-fade">
                     <div class="widget-content-wrapper text-white">
                         <div class="widget-content-left">
-                            <div class="widget-heading">Pagu BOSDA</div>
+                            <div class="widget-heading">Pagu BOSDA Total</div>
                         </div>
                         <div class="widget-content-right">
                             <div class="widget-numbers text-white">
                                 <i class="fa-solid fa-rupiah-sign"></i>
                                 <span><?php echo e(number_format(RDev::TBOS('pagu_bosda'))); ?></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-xl-3">
+                <div class="card mb-3 widget-content bg-grow-early">
+                    <div class="widget-content-wrapper text-white">
+                        <div class="widget-content-left">
+                            <div class="widget-heading">Pagu BOSNAS Negeri</div>
+                        </div>
+                        <div class="widget-content-right">
+                            <div class="widget-numbers text-white">
+                                <i class="fa-solid fa-rupiah-sign"></i>
+                                <span><?php echo e(number_format(RDev::TBOS('pagu_bosnas', 'Negeri'))); ?></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-xl-3">
+                <div class="card mb-3 widget-content bg-night-fade">
+                    <div class="widget-content-wrapper text-white">
+                        <div class="widget-content-left">
+                            <div class="widget-heading">Pagu BOSNAS Swasta</div>
+                        </div>
+                        <div class="widget-content-right">
+                            <div class="widget-numbers text-white">
+                                <i class="fa-solid fa-rupiah-sign"></i>
+                                <span><?php echo e(number_format(RDev::TBOS('pagu_bosnas', 'Swasta'))); ?></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-xl-3">
+                <div class="card mb-3 widget-content bg-grow-early">
+                    <div class="widget-content-wrapper text-white">
+                        <div class="widget-content-left">
+                            <div class="widget-heading">Pagu BOSDA Negeri</div>
+                        </div>
+                        <div class="widget-content-right">
+                            <div class="widget-numbers text-white">
+                                <i class="fa-solid fa-rupiah-sign"></i>
+                                <span><?php echo e(number_format(RDev::TBOS('pagu_bosda', 'Negeri'))); ?></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-xl-3">
+                <div class="card mb-3 widget-content bg-night-fade">
+                    <div class="widget-content-wrapper text-white">
+                        <div class="widget-content-left">
+                            <div class="widget-heading">Pagu BOSDA Swasta</div>
+                        </div>
+                        <div class="widget-content-right">
+                            <div class="widget-numbers text-white">
+                                <i class="fa-solid fa-rupiah-sign"></i>
+                                <span><?php echo e(number_format(RDev::TBOS('pagu_bosda', 'Swasta'))); ?></span>
                             </div>
                         </div>
                     </div>

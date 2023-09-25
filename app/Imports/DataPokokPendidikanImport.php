@@ -55,12 +55,14 @@ class DataPokokPendidikanImport implements ToModel, WithHeadingRow
                 'npsn' => $row['npsn'],
                 'bentuk_pendidikan' => $row['bentuk_pendidikan'],
                 'kab_kota_sp' => $row['kab_kota'],
+                'status' => $row['status'],
                 'peserta_didik' => $row['peserta_didik'],
                 'pagu_bosnas' => strval($pagu_bosnas),
                 'pagu_bosda' => strval($pagu_bosda),
             ]);
         } else {
             DataPokokPendidikan::where('npsn', $row['npsn'])->first()->update([
+                'status' => $row['status'],
                 'peserta_didik' => $row['peserta_didik'],
                 'pagu_bosnas' => strval($pagu_bosnas),
                 'pagu_bosda' => strval($pagu_bosda),

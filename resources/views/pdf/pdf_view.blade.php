@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" />
 </head>
-<body>
+<body style="font: 15px;">
     <center>KOP SURAT</center>
     <h6 class="text-center mt-5 mb-5 pt-5"><u>SURAT PERNYATAAN TANGGUNGJAWAB MUTLAK</u></h6>
     <p>
@@ -89,6 +89,10 @@
                 @endforeach
             </tbody>
         </table>
+        <br>
+        <br>
+        <br>
+        <br>
         <br>
         <br>
         <br>

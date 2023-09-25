@@ -18,6 +18,7 @@ class DataPokokPendidikan extends Model
         'npsn',
         'bentuk_pendidikan',
         'kab_kota_sp',
+        'status',
         'peserta_didik',
         'pagu_bosnas',
         'pagu_bosda',

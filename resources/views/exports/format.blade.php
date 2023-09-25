@@ -5,6 +5,7 @@
         <th>NPSN</th>
         <th>Bentuk Pendidikan</th>
         <th>Kabupaten/Kota</th>
+        <th>Status</th>
         <th>Peserta Didik</th>
         <th>Pagu BOSNAS</th>
         <th>Pagu BOSDA</th>
@@ -17,6 +18,7 @@
             <td>{{ $data->npsn }}</td>
             <td>{{ $data->bentuk_pendidikan }}</td>
             <td>{{ $data->kab_kota_sp }}</td>
+            <td>{{ $data->status }}</td>
             <td>{{ $data->peserta_didik }}</td>
             <td>{{ $data->pagu_bosnas }}</td>
             <td>{{ $data->pagu_bosda }}</td>

@@ -5,6 +5,7 @@
         <th>NPSN</th>
         <th>Bentuk Pendidikan</th>
         <th>Kabupaten/Kota</th>
+        <th>Status</th>
         <th>Peserta Didik</th>
         <th>Pagu BOSNAS</th>
         <th>Pagu BOSDA</th>
@@ -17,6 +18,7 @@
             <td><?php echo e($data->npsn); ?></td>
             <td><?php echo e($data->bentuk_pendidikan); ?></td>
             <td><?php echo e($data->kab_kota_sp); ?></td>
+            <td><?php echo e($data->status); ?></td>
             <td><?php echo e($data->peserta_didik); ?></td>
             <td><?php echo e($data->pagu_bosnas); ?></td>
             <td><?php echo e($data->pagu_bosda); ?></td>

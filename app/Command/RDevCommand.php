@@ -16,9 +16,13 @@ use App\Models\AnggaranBos;
 
 class RDevCommand {
 
-    public static function TBOS($jenis)
+    public static function TBOS($jenis, $status=null)
     {
-        return DataPokokpendidikan::sum($jenis);
+        if (isset($status)) {
+            return DataPokokpendidikan::where('status', $status)->sum($jenis);
+        }else{
+            return DataPokokpendidikan::sum($jenis);
+        }
     }
 
     public static function TPD()

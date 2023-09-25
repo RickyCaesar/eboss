@@ -18,6 +18,7 @@ class CreateDataPokokPendidikansTable extends Migration
             $table->string('satuan_pendidikan');
             $table->string('npsn');
             $table->string('bentuk_pendidikan');
+            $table->enum('status', ['Negeri', 'Swasta']);
             $table->string('kab_kota_sp');
             $table->integer('peserta_didik');
             $table->bigInteger('pagu_bosnas');
