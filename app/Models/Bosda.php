@@ -14,6 +14,8 @@ class Bosda extends Model
     public $timestamps = true;
 
     protected $fillable = [
-        'satuan_biaya'
+        'sma',
+        'smk',
+        'slb',
     ];
 }

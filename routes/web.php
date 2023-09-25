@@ -56,3 +56,10 @@ Route::middleware(['auth'])->group(function () {
     });
 });
 
+Route::get('/test', function (Request $request) {
+    for ($i=0; $i < 10; $i++) { 
+        ${'test' . $i} = $i;
+    }
+    dd($test9);
+});
+
