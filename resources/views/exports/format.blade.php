@@ -7,6 +7,8 @@
         <th>Kabupaten/Kota</th>
         <th>Status</th>
         <th>Peserta Didik</th>
+        <th>Besaran Satuan Biaya (BOSNAS)</th>
+        <th>Besaran Satuan Biaya (BOSDA)</th>
         <th>Pagu BOSNAS</th>
         <th>Pagu BOSDA</th>
     </tr>
@@ -20,6 +22,8 @@
             <td>{{ $data->kab_kota_sp }}</td>
             <td>{{ $data->status }}</td>
             <td>{{ $data->peserta_didik }}</td>
+            <td>{{ $data->besaran_satuan_biaya_bosnas }}</td>
+            <td>{{ $data->besaran_satuan_biaya_bosda }}</td>
             <td>{{ $data->pagu_bosnas }}</td>
             <td>{{ $data->pagu_bosda }}</td>
         </tr>

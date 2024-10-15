@@ -41,7 +41,7 @@ SET time_zone = "+00:00";
 -- Dumping data for table `bosnas`
 --
 
-INSERT INTO `bosda` (`id`, `kab_kota`, `sma`, `smk`, `slb`, `created_at`, `updated_at`) VALUES
+INSERT INTO `bosdas` (`id`, `kab_kota`, `sma`, `smk`, `slb`, `created_at`, `updated_at`) VALUES
 (1, 'Kabupaten Berau', 1052000, 1171000, 1612000, NULL, '2023-08-28 18:36:50'),
 (2, 'Kabupaten Kutai Barat', 1177000, 1307000, 1687000, NULL, '2023-08-28 18:36:50'),
 (3, 'Kabupaten Kutai Kartanegara', 1127000, 1254000, 1659000, NULL, '2023-08-28 18:36:50'),

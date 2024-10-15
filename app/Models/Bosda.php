@@ -9,7 +9,7 @@ class Bosda extends Model
 {
     use HasFactory;
     
-    protected $table = 'bosda';
+    protected $table = 'bosdas';
 
     public $timestamps = true;
 

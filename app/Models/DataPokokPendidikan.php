@@ -20,6 +20,8 @@ class DataPokokPendidikan extends Model
         'kab_kota_sp',
         'status',
         'peserta_didik',
+        'besaran_satuan_biaya_bosnas',
+        'besaran_satuan_biaya_bosda',
         'pagu_bosnas',
         'pagu_bosda',
     ];

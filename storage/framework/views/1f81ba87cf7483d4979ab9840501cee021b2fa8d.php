@@ -43,6 +43,9 @@
                                         <th class="align-middle text-center">Kabupaten/Kota</th>
                                         <th class="align-middle text-center">Status</th>
                                         <th class="align-middle text-center">Peserta Didik</th>
+                                        <th class="align-middle text-center">Besaran Satuan Biaya (BOSNAS)</th>
+                                        <th class="align-middle text-center">Besaran Satuan Biaya (BOSDA)</th>
+                                        <th class="align-middle text-center">Peserta Didik</th>
                                         <th class="align-middle text-center">Pagu BOSNAS</th>
                                         <th class="align-middle text-center">Pagu BOSDA</th>
                                         <th class="align-middle text-center">#</th>
@@ -56,6 +59,9 @@
                                         <td><?php echo e($data->bentuk_pendidikan); ?></td>
                                         <td><?php echo e($data->kab_kota_sp); ?></td>
                                         <td><?php echo e($data->status); ?></td>
+                                        <td><?php echo e($data->peserta_didik); ?></td>
+                                        <td><?php echo e(number_format($data->besaran_satuan_biaya_bosnas)); ?></td>
+                                        <td><?php echo e(number_format($data->besaran_satuan_biaya_bosda)); ?></td>
                                         <td><?php echo e($data->peserta_didik); ?></td>
                                         <td><?php echo e(number_format($data->pagu_bosnas)); ?></td>
                                         <td><?php echo e(number_format($data->pagu_bosda)); ?></td>

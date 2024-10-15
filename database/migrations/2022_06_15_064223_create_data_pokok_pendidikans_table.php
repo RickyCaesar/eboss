@@ -21,6 +21,8 @@ class CreateDataPokokPendidikansTable extends Migration
             $table->enum('status', ['Negeri', 'Swasta']);
             $table->string('kab_kota_sp');
             $table->integer('peserta_didik');
+            $table->bigInteger('besaran_satuan_biaya_bosnas');
+            $table->bigInteger('besaran_satuan_biaya_bosda');
             $table->bigInteger('pagu_bosnas');
             $table->bigInteger('pagu_bosda');
             $table->timestamps();

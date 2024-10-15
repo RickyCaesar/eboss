@@ -13,7 +13,7 @@ class CreateBosdasTable extends Migration
      */
     public function up()
     {
-        Schema::create('bosda', function (Blueprint $table) {
+        Schema::create('bosdas', function (Blueprint $table) {
             $table->id();
             $table->string('kab_kota');
             $table->integer('sma');
